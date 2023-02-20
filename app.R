@@ -77,10 +77,11 @@ server <- function(input, output) {
     plot1 <- ggplot(data = data.frame(Class = c("On_Time", "Delayed"), Percentage = c(onTimePct, delayedPct))) +
       geom_col(aes(x = Class, y = Percentage, fill = Class)) +
       coord_flip() +
-      scale_fill_manual(values = c("#2E7D32", "#B71C1C")) +
+      scale_fill_manual(values = c("#B71C1C", "#5CB85C")) +
       xlab("Flight Status") +
       ylab("Percentage") +
-      ggtitle("On-Time and Delayed Flights Percentage")
+      ggtitle("On-Time and Delayed Flights Percentage") +
+      theme(legend.position = "none")
     plot1
   })
   
@@ -100,7 +101,7 @@ server <- function(input, output) {
       xlab("Airline") +
       ylab("Delayed Percentage") +
       ggtitle("Delayed Percentage by Airline") +
-      theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+      theme(legend.position = "none") +
       ylim(0,100)
     plot2
   })
@@ -121,7 +122,7 @@ server <- function(input, output) {
       xlab("Departure Airport") +
       ylab("Number of Delayed Flights") +
       ggtitle("Top 10 Departure Airports with Most Delayed Flights") +
-      theme(axis.text.x = element_text(angle = 90, hjust = 1))
+      theme(legend.position = "none")
   })
   
   output$plot3b <- renderPlot({
@@ -140,7 +141,7 @@ server <- function(input, output) {
       xlab("Arrival Airport") +
       ylab("Number of Delayed Flights") +
       ggtitle("Top 10 Arrival Airports with Most Delayed Flights") +
-      theme(axis.text.x = element_text(angle = 90, hjust = 1))
+      theme(legend.position = "none")
     plot3
   })
   
