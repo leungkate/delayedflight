@@ -3,7 +3,7 @@ library(dplyr)
 library(ggplot2)
 
 # Load data
-dataset <- read.csv('/Users/kateleung/Downloads/airlines_delay.csv')
+dataset <- read.csv('airlines_delay.csv')
 
 # Set labels for Class variable
 dataset$Class[dataset$Class == 1] <- 'Delayed'
